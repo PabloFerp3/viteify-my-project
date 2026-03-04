@@ -1,14 +1,48 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState, useEffect } from "react"
+import { I18nProvider } from "@/lib/i18n-context"
+import { Header } from "@/components/veloso/Header"
+import { Footer } from "@/components/veloso/Footer"
+import { HeroSection } from "@/components/veloso/HeroSection"
+import { SectorsSection } from "@/components/veloso/SectorsSection"
+import { ServicesSection } from "@/components/veloso/ServicesSection"
+import { ContactSection } from "@/components/veloso/ContactSection"
+import { LegalPage } from "@/components/veloso/LegalPage"
 
-const Index = () => {
+export default function Home() {
+  const [currentView, setCurrentView] = useState("inicio")
+
+  const handleNavigate = (view: string) => {
+    setCurrentView(view)
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 })
+  }, [currentView])
+
+  const isLegalPage = ["privacidad", "cookies", "aviso-legal"].includes(currentView)
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
-  );
-};
+    <I18nProvider>
+      <div className="min-h-screen bg-background text-foreground">
+        <Header currentView={currentView} onNavigate={handleNavigate} />
 
-export default Index;
+        <main className="pt-16">
+          {currentView === "inicio" && (
+            <>
+              <HeroSection onNavigate={handleNavigate} />
+              <SectorsSection />
+            </>
+          )}
+          {currentView === "servicios" && <ServicesSection />}
+          {currentView === "contacto" && <ContactSection />}
+          {isLegalPage && (
+            <LegalPage type={currentView} onBack={() => handleNavigate("inicio")} />
+          )}
+        </main>
+
+        <Footer onNavigate={handleNavigate} />
+      </div>
+    </I18nProvider>
+  )
+}
