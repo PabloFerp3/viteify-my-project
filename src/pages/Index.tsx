@@ -6,7 +6,6 @@ import { HeroSection } from "@/components/veloso/HeroSection"
 import { SectorsSection } from "@/components/veloso/SectorsSection"
 import { ServicesSection } from "@/components/veloso/ServicesSection"
 import { ContactSection } from "@/components/veloso/ContactSection"
-import { LegalPage } from "@/components/veloso/LegalPage"
 
 export default function Home() {
   const [currentView, setCurrentView] = useState("inicio")
@@ -19,8 +18,6 @@ export default function Home() {
   useEffect(() => {
     window.scrollTo({ top: 0 })
   }, [currentView])
-
-  const isLegalPage = ["privacidad", "cookies", "aviso-legal"].includes(currentView)
 
   return (
     <I18nProvider>
@@ -36,12 +33,9 @@ export default function Home() {
           )}
           {currentView === "servicios" && <ServicesSection />}
           {currentView === "contacto" && <ContactSection />}
-          {isLegalPage && (
-            <LegalPage type={currentView} onBack={() => handleNavigate("inicio")} />
-          )}
         </main>
 
-        <Footer onNavigate={handleNavigate} />
+        <Footer />
       </div>
     </I18nProvider>
   )
