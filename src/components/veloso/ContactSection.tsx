@@ -49,7 +49,7 @@ export function ContactSection() {
                   </h3>
                   <a
                     href="mailto:info.talleresveloso@gmail.com"
-                    className="mt-1 text-sm text-muted-foreground transition-colors hover:text-primary"
+                    className="mt-1 block text-sm text-muted-foreground transition-colors hover:text-primary"
                   >
                     info.talleresveloso@gmail.com
                   </a>
@@ -66,7 +66,7 @@ export function ContactSection() {
                   </h3>
                   <a
                     href="tel:623258421"
-                    className="mt-1 text-sm text-muted-foreground transition-colors hover:text-primary"
+                    className="mt-1 block text-sm text-muted-foreground transition-colors hover:text-primary"
                   >
                     623258421
                   </a>
@@ -110,10 +110,16 @@ export function ContactSection() {
           </div>
 
           <div className="lg:col-span-3">
+            {/* Standard HTML form - action should be updated with your WordPress form handler URL */}
             <form
               onSubmit={handleSubmit}
+              action="https://your-wordpress-site.com/wp-admin/admin-post.php"
+              method="POST"
               className="rounded-lg border border-border bg-card p-6 sm:p-8"
             >
+              {/* Hidden field for WordPress form handler - update with your action name */}
+              <input type="hidden" name="action" value="contact_form_submission" />
+
               <div className="space-y-5">
                 <div>
                   <label
@@ -125,6 +131,7 @@ export function ContactSection() {
                   <input
                     type="text"
                     id="nombre"
+                    name="nombre"
                     value={formData.nombre}
                     onChange={(e) =>
                       setFormData({ ...formData, nombre: e.target.value })
@@ -145,6 +152,7 @@ export function ContactSection() {
                   <input
                     type="email"
                     id="email"
+                    name="email"
                     value={formData.email}
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
@@ -164,6 +172,7 @@ export function ContactSection() {
                   </label>
                   <textarea
                     id="mensaje"
+                    name="mensaje"
                     rows={5}
                     value={formData.mensaje}
                     onChange={(e) =>

@@ -43,7 +43,7 @@ export function Header({ currentView, onNavigate }: HeaderProps) {
             <img
               src="/images/logo.png"
               alt="Veloso Industrial"
-              className="h-10 w-auto object-contain brightness-90 invert"
+              className="h-14 w-auto object-contain"
             />
           </button>
 

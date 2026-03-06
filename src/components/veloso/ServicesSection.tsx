@@ -50,11 +50,12 @@ export function ServicesSection() {
               key={index}
               className="group overflow-hidden rounded-lg border border-border bg-card transition-all hover:border-primary/40"
             >
-              <div className="relative h-56 overflow-hidden sm:h-64">
+              <div className="relative overflow-hidden" style={{ height: "clamp(280px, 40vw, 420px)" }}>
                 <img
                   src={service.image}
                   alt={t(service.titleKey)}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  style={{ objectPosition: "center 30%" }}
                 />
                 <div className="absolute inset-0 bg-black/30 transition-opacity group-hover:bg-black/20" />
                 <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-card to-transparent" />
