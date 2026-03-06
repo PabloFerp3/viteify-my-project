@@ -1,8 +1,8 @@
-import { MapPin, Phone, Mail } from "lucide-react";
-import { useI18n } from "@/lib/i18n-context";
+import { MapPin, Phone, Mail } from "lucide-react"
+import { useI18n } from "@/lib/i18n-context"
 
 export function Footer() {
-  const { t } = useI18n();
+  const { t } = useI18n()
 
   return (
     <footer className="border-t border-border bg-card">
@@ -11,10 +11,10 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <img
-
+                src="/images/logo.png"
                 alt="Veloso Industrial"
-                className="h-12 w-auto object-contain" src="/lovable-uploads/ba68e49f-3cfa-4993-a86c-a1041bff0e4f.png" />
-              
+                className="h-12 w-auto object-contain"
+              />
             </div>
             <p className="text-sm leading-relaxed text-muted-foreground">
               {t("footer.desc")}
@@ -59,6 +59,6 @@ export function Footer() {
           </p>
         </div>
       </div>
-    </footer>);
-
+    </footer>
+  )
 }
