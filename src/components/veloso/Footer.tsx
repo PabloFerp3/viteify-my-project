@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail } from "lucide-react"
+import { MapPin, Phone, Mail, Instagram } from "lucide-react"
 import { useI18n } from "@/lib/i18n-context"
 
 export function Footer() {
@@ -38,6 +38,20 @@ export function Footer() {
                 <Mail className="h-4 w-4 shrink-0 text-primary" />
                 <a href="mailto:info.talleresveloso@gmail.com" className="transition-colors hover:text-primary">info.talleresveloso@gmail.com</a>
               </div>
+            </div>
+            <div className="mt-4">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground mb-2">
+                {t("footer.redes") || "Redes Sociales"}
+              </h3>
+              <a
+                href="https://www.instagram.com/veloso_industrial"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+              >
+                <Instagram className="h-5 w-5" />
+                <span>@veloso_industrial</span>
+              </a>
             </div>
           </div>
 
