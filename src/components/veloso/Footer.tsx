@@ -41,7 +41,7 @@ export function Footer() {
             </div>
             <div className="mt-4">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground mb-2">
-                {t("footer.redes") || "Redes Sociales"}
+                REDES SOCIALES
               </h3>
               <a
                 href="https://www.instagram.com/veloso_industrial"
@@ -49,7 +49,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
               >
-                <Instagram className="h-5 w-5" />
+                <Instagram className="h-5 w-5 text-primary" />
                 <span>@veloso_industrial</span>
               </a>
             </div>
